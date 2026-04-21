@@ -16,5 +16,6 @@
  * }
  */
 const gameData = [
-  { date: "2026-04-20 14:00", extensions: [], won: true }
+  { date: "2026-04-20 14:00", extensions: [], won: true },
+  { date: "2026-04-21 10:00", extensions: [1], won: false }
 ];
