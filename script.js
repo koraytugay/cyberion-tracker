@@ -106,12 +106,14 @@ function renderDashboard() {
         const statusTd = document.createElement('td');
         statusTd.className = 'heatmap-cell';
         const statusBox = document.createElement('div');
-        statusBox.className = 'heat-box status-text';
+        statusBox.className = 'heat-box';
         
         if (isWon) {
-            statusBox.textContent = 'W';
+            statusBox.textContent = '✅';
+            statusBox.classList.add('status-text');
         } else if (isPlayed) {
-            statusBox.textContent = 'L';
+            statusBox.textContent = '❌';
+            statusBox.classList.add('status-text');
         } else {
             statusBox.textContent = '-';
         }

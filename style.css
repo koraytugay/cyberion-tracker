@@ -185,5 +185,5 @@ tr:last-child td {
 }
 
 .status-text {
-  /* Inherits from text-win or standard */
+  font-size: 1.25rem;
 }
