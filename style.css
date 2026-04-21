@@ -93,6 +93,7 @@ header h1 {
   font-weight: 800;
   padding: 0.75rem 1.5rem;
   margin: 0;
+  text-align: center;
 }
 
 table {
@@ -135,10 +136,6 @@ td {
   font-size: 0.875rem;
 }
 
-tr:last-child:not(.row-unbeaten) td {
-  border-bottom: none;
-}
-
 td.idx-cell {
   width: 40px;
   text-align: center;
@@ -172,20 +169,19 @@ td.heatmap-cell {
 
 /* Row Status Styling */
 .row-unbeaten {
-  background-color: #000000;
+  background-color: #d1d5db;
 }
 
 .row-unbeaten td {
-  color: #ffffff !important;
-  border-bottom: 1px solid #ffffff;
-}
-
-.row-unbeaten td.heatmap-cell {
-  border-left: 1px solid #ffffff;
+  color: #000000 !important;
 }
 
 .row-beaten {
   background-color: #ffffff;
+}
+
+tr:last-child td {
+  border-bottom: none;
 }
 
 .status-text {

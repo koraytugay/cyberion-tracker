@@ -54,13 +54,20 @@ function renderDashboard() {
         return a.join().localeCompare(b.join());
     });
 
-    const wonComboKeys = new Set();
+    const comboHistory = new Map(); // key -> { won: boolean, played: boolean }
     processedGames.forEach(game => {
-        if (game.won) wonComboKeys.add(getComboKey(game.extensions));
+        const key = getComboKey(game.extensions);
+        if (!comboHistory.has(key)) {
+            comboHistory.set(key, { won: false, played: true });
+        }
+        if (game.won) {
+            comboHistory.get(key).won = true;
+        }
     });
 
     // Update Combination Progress Stat
-    document.getElementById('combo-progress').textContent = `${wonComboKeys.size}/${allCombos.length}`;
+    const wonCombosCount = Array.from(comboHistory.values()).filter(h => h.won).length;
+    document.getElementById('combo-progress').textContent = `${wonCombosCount}/${allCombos.length}`;
 
     // Render Combinations Matrix
     const combosBody = document.getElementById('combinations-body');
@@ -68,10 +75,12 @@ function renderDashboard() {
 
     allCombos.forEach((combo, index) => {
         const key = getComboKey(combo);
-        const isBeaten = wonComboKeys.has(key);
+        const history = comboHistory.get(key);
+        const isPlayed = !!history;
+        const isWon = history?.won || false;
         
         const tr = document.createElement('tr');
-        tr.className = isBeaten ? 'row-beaten' : 'row-unbeaten';
+        tr.className = isPlayed ? 'row-beaten' : 'row-unbeaten';
 
         // Index Cell
         const idxTd = document.createElement('td');
@@ -98,7 +107,15 @@ function renderDashboard() {
         statusTd.className = 'heatmap-cell';
         const statusBox = document.createElement('div');
         statusBox.className = 'heat-box status-text';
-        statusBox.textContent = isBeaten ? 'W' : '-';
+        
+        if (isWon) {
+            statusBox.textContent = 'W';
+        } else if (isPlayed) {
+            statusBox.textContent = 'L';
+        } else {
+            statusBox.textContent = '-';
+        }
+        
         statusTd.appendChild(statusBox);
         tr.appendChild(statusTd);
 
