@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyberion Tracker</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Cyberion Tracker</h1>
+        </header>
+
+        <section class="summary-grid">
+            <div class="stat-card">
+                <span id="total-games" class="stat-value">-</span>
+                <span class="stat-label">Total Sessions</span>
+            </div>
+            <div class="stat-card">
+                <span id="total-wins" class="stat-value">-</span>
+                <span class="stat-label">Wins</span>
+            </div>
+            <div class="stat-card">
+                <span id="total-losses" class="stat-value">-</span>
+                <span class="stat-label">Losses</span>
+            </div>
+            <div class="stat-card">
+                <span id="win-rate" class="stat-value">-</span>
+                <span class="stat-label">Win Rate</span>
+            </div>
+            <div class="stat-card">
+                <span id="combo-progress" class="stat-value">-</span>
+                <span class="stat-label">Combos Beaten</span>
+            </div>
+        </section>
+
+        <section class="matrix-container">
+            <h2 class="section-title">Extension Combination Matrix</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th class="idx-col">#</th>
+                        <th class="ext-col"><span>Babybots</span></th>
+                        <th class="ext-col"><span>Gigantobots</span></th>
+                        <th class="ext-col"><span>Microbots</span></th>
+                        <th class="ext-col"><span>Multibots</span></th>
+                        <th class="ext-col"><span>Devious Cog</span></th>
+                        <th class="ext-col"><span>Status</span></th>
+                    </tr>
+                </thead>
+                <tbody id="combinations-body">
+                    <!-- Combinations injected here -->
+                </tbody>
+            </table>
+        </section>
+
+        <section class="matrix-container">
+            <h2 class="section-title">Gameplay History</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th style="padding-left: 1.5rem;">Date & Time</th>
+                        <th class="ext-col"><span>Babybots</span></th>
+                        <th class="ext-col"><span>Gigantobots</span></th>
+                        <th class="ext-col"><span>Microbots</span></th>
+                        <th class="ext-col"><span>Multibots</span></th>
+                        <th class="ext-col"><span>Devious Cog</span></th>
+                        <th class="ext-col"><span>Result</span></th>
+                    </tr>
+                </thead>
+                <tbody id="matrix-body">
+                    <!-- Rows injected here -->
+                </tbody>
+            </table>
+        </section>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

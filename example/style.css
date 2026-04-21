@@ -1,0 +1,193 @@
+:root {
+  --bg-color: #f3f4f6; /* Concrete/Parchment Gray */
+  --card-bg: #ffffff;
+  --text-primary: #1c1917; /* Near black (stone-900) */
+  --text-secondary: #000000;
+  --border-color: #000000;
+  --accent-rust: #c2410c; /* Burnt Orange from the large gear */
+  --accent-yellow: #eab308; /* Mustard Yellow from the small robots */
+  --accent-pink: #db2777; /* Pink accents from the robot details */
+  --win-color: #000000;
+  --loss-color: #c2410c;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: var(--bg-color);
+  background-image: radial-gradient(#d1d5db 1px, transparent 1px); /* Subtle texture */
+  background-size: 20px 20px;
+  color: var(--text-primary);
+  margin: 0;
+  padding: 2rem;
+  line-height: 1.5;
+}
+
+.container {
+  max-width: 950px;
+  margin: 0 auto;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+header h1 {
+  font-size: 3.5rem;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.05em;
+  color: var(--accent-rust);
+  text-transform: uppercase;
+  font-weight: 800;
+  border-bottom: 2px solid var(--accent-rust);
+  display: inline-block;
+  padding: 0 1rem;
+}
+
+/* Summary Dashboard */
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.stat-card {
+  background-color: var(--card-bg);
+  padding: 1.25rem;
+  border-radius: 0;
+  text-align: center;
+  border: 1px solid var(--border-color);
+}
+
+.stat-value {
+  display: block;
+  font-size: 1.75rem;
+  font-weight: 800;
+  margin-bottom: 0.25rem;
+  color: var(--accent-rust);
+}
+
+.stat-label {
+  color: var(--text-primary);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 700;
+}
+
+/* Table Design */
+.matrix-container {
+  background-color: var(--card-bg);
+  border-radius: 0;
+  border: 1px solid var(--border-color);
+  margin-bottom: 2rem;
+}
+
+.section-title {
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #ffffff;
+  background-color: var(--border-color);
+  font-weight: 800;
+  padding: 0.75rem 1.5rem;
+  margin: 0;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+th {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: #f8fafc;
+  padding: 1rem 0.5rem;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  border-bottom: 1px solid var(--border-color);
+  white-space: nowrap;
+}
+
+th.idx-col {
+  width: 40px;
+  text-align: center;
+  padding-left: 1rem;
+}
+
+th.ext-col {
+  text-align: center;
+}
+
+th.ext-col span {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+td {
+  padding: 0.75rem 0.5rem;
+  border-bottom: 1px solid var(--border-color);
+  font-size: 0.875rem;
+}
+
+tr:last-child:not(.row-unbeaten) td {
+  border-bottom: none;
+}
+
+td.idx-cell {
+  width: 40px;
+  text-align: center;
+  font-family: monospace;
+  padding-left: 1rem;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+td.date-cell {
+  font-family: monospace;
+  white-space: nowrap;
+  padding-left: 1.5rem;
+}
+
+/* Marker Cells */
+td.heatmap-cell {
+  width: 50px;
+  padding: 0;
+  border-left: 1px solid var(--border-color);
+  text-align: center;
+}
+
+.heat-box {
+  width: 100%;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Row Status Styling */
+.row-unbeaten {
+  background-color: #000000;
+}
+
+.row-unbeaten td {
+  color: #ffffff !important;
+  border-bottom: 1px solid #ffffff;
+}
+
+.row-unbeaten td.heatmap-cell {
+  border-left: 1px solid #ffffff;
+}
+
+.row-beaten {
+  background-color: #ffffff;
+}
+
+.status-text {
+  /* Inherits from text-win or standard */
+}
