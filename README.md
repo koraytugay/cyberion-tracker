@@ -1,1 +1,1 @@
-This page runs on https://koraytugay.github.io/cyberion-tracker only.
+100% vibe coding. A tracker for Cyberion board game. Running at: https://koraytugay.github.io/cyberion-tracker
