@@ -32,4 +32,5 @@ const gameData = [
   { date: "2026-04-30 14:30", extensions: [3], won: false },
   { date: "2026-04-30 18:30", extensions: [3], won: false },
   { date: "2026-05-01 09:30", extensions: [3], won: false },
+  { date: "2026-05-02 08:30", extensions: [3], won: true },
 ];
